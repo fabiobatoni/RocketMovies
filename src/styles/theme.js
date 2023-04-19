@@ -1,0 +1,22 @@
+export default {
+    COLORS: {
+        TEXT_COLOR_RED: '#FF859B',
+
+        TEXT_COLOR_GRAY_100: '#CAC4CF',
+        TEXT_COLOR_GRAY_200: '#F4EDE8',
+        TEXT_COLOR_GRAY_300: '#948F99',
+        TEXT_COLOR_GRAY_400: '#999591',
+        TEXT_COLOR_GRAY_500: '#E5E5E5',
+
+        TEXT_COLOR_BLACK: '#312E38',
+
+        BACKGROUND_COLOR_100: '#262529',
+        BACKGROUND_COLOR_200: '#1C1B1E',
+        BACKGROUND_COLOR_300: '#312E38',
+        BACKGROUND_COLOR_400: '#3E3B47',
+        BACKGROUND_COLOR_RED: '#FF859B',
+
+        WHITE: '#FFFFFF',
+        BLACK: '#000000',
+    }
+}
