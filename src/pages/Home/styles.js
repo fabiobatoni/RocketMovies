@@ -21,7 +21,7 @@ export const Heading = styled.div `
 `;
 
 export const Content = styled.div `
-    grid-area: content;
-    padding: 0 64px;
-    overflow-y: auto;
+    margin: 10px 230px;
+    height: 600px;
+    overflow: auto;
 `;

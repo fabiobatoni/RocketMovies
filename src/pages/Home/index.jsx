@@ -16,7 +16,21 @@ export function Home() {
             </Heading>
 
             <Content>
-                <Movie />
+               <Movie 
+                data={{title: 'Interestellar', description: 'Esse filme e muito legal', tags: [{id: '1', name: 'Ficção cientifica'}, {id: '2', name: 'Drama'}]}}
+                />
+
+               <Movie 
+                data={{title: 'Procurando o nemo', description: 'Esse filme do peixinho nemo', tags: [{id: '1', name: 'Comedia'}, {id: '2', name: 'Familia'}]}}
+                />
+
+                <Movie 
+                data={{title: 'Star Wars', description: 'Esse filme do guerra nas estrelas', tags: [{id: '1', name: 'Guerra'}, {id: '2', name: 'Espaço'}]}}
+                />
+
+                <Movie 
+                data={{title: 'Super Mario', description: 'filme baseado no jogo do nintendo', tags: [{id: '1', name: 'Games'}, {id: '2', name: 'Comedia'}]}}
+                />
             </Content>
 
             
