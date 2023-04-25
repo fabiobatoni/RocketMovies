@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Container, Content, Avatar, Main, Section, Title } from './styles';
 import { Header } from '../../components/Header';
 import { Tag } from '../../components/Tag';
@@ -11,10 +12,10 @@ export function Details() {
       <Header />
 
       <header>
-        <a href="#">
+        <Link to="/">
             <FiArrowLeft />
             Voltar
-        </a>
+        </Link>
       </header>
       
       <Content>
