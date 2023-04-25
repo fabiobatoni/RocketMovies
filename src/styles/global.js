@@ -20,6 +20,10 @@ export default createGlobalStyle`
         outline: none;
     }
 
+    textarea:focus, input:focus {
+        outline: 0;
+    }
+
     a {
         text-decoration: none;
     }
