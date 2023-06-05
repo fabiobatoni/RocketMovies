@@ -62,3 +62,13 @@ export const Profile = styled.div`
         }
     }
 `
+
+export const SignOut = styled.button`
+    border: none;
+    font-size: 14px;
+    background-color: transparent;
+    color: ${({theme}) => theme.COLORS.TEXT_COLOR_GRAY_300};
+    text-align: end;
+    margin-right: 10px
+
+`
