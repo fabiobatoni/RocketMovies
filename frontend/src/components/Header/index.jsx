@@ -1,4 +1,5 @@
-import { Container, Profile, Logo, SignOut } from './styles';
+import { Link } from 'react-router-dom';
+import { Container, Profile, Logo, SignOut, Avatar } from './styles';
 import { useAuth } from '../../hooks/auth'
 
 import { Input } from '../Input';
@@ -18,8 +19,10 @@ export function Header() {
                     <strong>Fabio Batoni</strong>
                    <SignOut onClick={signOut}>Sair</SignOut>
                 </div>
-
-                <img src="https://github.com/fabiobatoni.png" alt="foto github" />
+                <Link to="/profile">
+                    <Avatar src="https://github.com/fabiobatoni.png" alt="foto github"/>
+                </Link>
+                
             </Profile>
         </Container>
     )

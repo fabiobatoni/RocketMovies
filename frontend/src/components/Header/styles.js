@@ -34,13 +34,6 @@ export const Profile = styled.div`
     display: flex;
     align-items: center;
 
-    > img {
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-        border-color: '#FFFFFF';
-    }
-
     > div {
         display: flex;
         flex-direction: column;
@@ -70,5 +63,13 @@ export const SignOut = styled.button`
     color: ${({theme}) => theme.COLORS.TEXT_COLOR_GRAY_300};
     text-align: end;
     margin-right: 10px
+
+`
+
+export const Avatar = styled.img `
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        border-color: '#FFFFFF';
 
 `
