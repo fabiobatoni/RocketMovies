@@ -18,6 +18,10 @@ export function New() {
         setTags(prevState => [...prevState, newTag]);
     }
 
+    function handleRemoveTag(deleted) {
+        setTags(prevState => prevState.filter(tag => tag !== deleted));
+    }
+
     return(
         <Container>
             <Header />
@@ -45,7 +49,7 @@ export function New() {
 
                     {
                         tags.map((tag, index) => (
-                            <MovieItem key={String(index)} value={tag} onClick={() => {}}/>
+                            <MovieItem key={String(index)} value={tag} onClick={() => handleRemoveTag(tag)}/>
                         ))          
                     }
                    
