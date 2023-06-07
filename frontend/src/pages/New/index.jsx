@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Main, Inputs,Buttons } from './styles';
 import {FiArrowLeft} from 'react-icons/fi';
@@ -9,7 +10,13 @@ import { MovieItem } from '../../components/MovieItem';
 
 export function New() {
 
+    const [tags, setTags] = useState([]);
     const [newTag, setNewTag] = useState("");
+
+    function handleAddTag() {
+        console.log(tags)
+        setTags(prevState => [...prevState, newTag]);
+    }
 
     return(
         <Container>
@@ -35,8 +42,14 @@ export function New() {
                 <span>Marcadores</span>
 
                 <div className="tags">
-                    <MovieItem value="Drama"/>
-                    <MovieItem isNew placeholder="Nova Marcador"/>
+
+                    {
+                        tags.map((tag, index) => (
+                            <MovieItem key={String(index)} value={tag} onClick={() => {}}/>
+                        ))          
+                    }
+                   
+                    <MovieItem isNew placeholder="Nova Marcador" onChange={e => setNewTag(e.target.value)} value={newTag} onClick={handleAddTag}/>
                 </div> 
 
                 <Buttons>
