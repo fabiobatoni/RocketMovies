@@ -1,12 +1,16 @@
 import { Link } from 'react-router-dom';
 import { Container, Profile, Logo, SignOut, Avatar } from './styles';
 import { useAuth } from '../../hooks/auth'
+import  { api } from "../../service/api"
+import avatarPlaceHolder from '../../assets/avatar_placeholder.svg'
 
 import { Input } from '../Input';
 
 export function Header() {
 
-    const { signOut } = useAuth();
+    const { signOut, user } = useAuth();
+
+    const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceHolder;
 
     return(
         <Container>
@@ -16,11 +20,11 @@ export function Header() {
             <Input type="text" placeholder="Pesquisar pelo titulo" />
             <Profile>
                 <div>
-                    <strong>Fabio Batoni</strong>
+                    <strong>{user.name}</strong>
                    <SignOut onClick={signOut}>Sair</SignOut>
                 </div>
                 <Link to="/profile">
-                    <Avatar src="https://github.com/fabiobatoni.png" alt="foto github"/>
+                    <Avatar src={avatarUrl} alt={user.name}/>
                 </Link>
                 
             </Profile>

@@ -8,6 +8,9 @@ import { Button } from '../../components/Button';
 import { MovieItem } from '../../components/MovieItem';
 
 export function New() {
+
+    const [newTag, setNewTag] = useState("");
+
     return(
         <Container>
             <Header />

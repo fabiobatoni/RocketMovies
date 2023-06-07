@@ -5,16 +5,44 @@ import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import {FiArrowLeft, FiUser, FiMail, FiLock, FiCamera} from 'react-icons/fi';
 
+import  { api } from "../../service/api"
 import { useAuth } from '../../hooks/auth';
+
+import avatarPlaceHolder from '../../assets/avatar_placeholder.svg';
 
 export function Profile() {
 
-    const { user } = useAuth();
+    const { user, updateProfile } = useAuth();
 
     const [name, setName] = useState(user.name);
     const [email, setEmail] = useState(user.email);
     const [passwordOld, setPasswordOld] = useState();
     const [passwordNew, setPasswordNew] = useState();
+
+    const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceHolder;
+
+    const [avatar, setAvatar] = useState(avatarUrl);
+    const [avatarFile, setAvatarFile] = useState(null);
+
+    async function handleUpdate() {
+
+        const user = {
+            name,
+            email,
+            password: passwordNew,
+            old: passwordOld
+        }
+
+        await updateProfile({ user, avatarFile })
+    }
+
+    function handleChangeAvatar(event) {
+        const file = event.target.files[0];
+        setAvatarFile(file);
+
+        const imagePreview = URL.createObjectURL(file);
+        setAvatar(imagePreview);
+    }
 
     return(
         <Container>
@@ -28,12 +56,12 @@ export function Profile() {
         <Form>
 
             <Avatar>
-                <img src="https://github.com/fabiobatoni.png" alt="Foto do usuario" />
+                <img src={avatar} alt="Foto do usuario" />
 
                 <label htmlFor="avatar">
                 <FiCamera />
 
-                    <input id="avatar" type="file" />
+                    <input id="avatar" type="file" onChange={handleChangeAvatar}/>
                 </label>
             </Avatar>
 
@@ -69,7 +97,7 @@ export function Profile() {
                 onChange={e => setPasswordNew(e.target.value)}
             />
 
-            <Button title="Salvar"/>
+            <Button title="Salvar" onClick={handleUpdate}/>
 
         </Form>
 
