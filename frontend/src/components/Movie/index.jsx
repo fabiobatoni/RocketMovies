@@ -3,23 +3,22 @@ import { Tag } from '../../components/Tag';
 import { FiStar } from 'react-icons/fi';
 
 export function Movie({data, ...rest}) {
+
+    console.log(data);
+
     return(
         <Container {...rest}>
             <h1>{data.title}</h1>
 
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <FiStar />
-            <FiStar />
+            
 
             <p>{data.description}</p>
 
             {
-                data.tags &&
+                data.movieTags &&
                 <footer>
                     {
-                        data.tags.map(tag => <Tag key={tag.id} title={tag.name} />)
+                        data.movieTags.map(tag => <Tag key={String(tag.id)} title={tag.name} />)
                     }
                 </footer>
             }

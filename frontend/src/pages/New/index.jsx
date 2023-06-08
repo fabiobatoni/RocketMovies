@@ -21,6 +21,7 @@ export function New() {
     const [tags, setTags] = useState([]);
     const [newTag, setNewTag] = useState("");
 
+    console.log(note);
     const navigate = useNavigate();
 
     function handleAddTag() {
@@ -41,11 +42,11 @@ export function New() {
         if(!note) {
             return alert("Digite a nota do filme");
         }
-        
 
         if(newTag) {
             return alert("Você deixou uma tag no campo para adicionar, mas não clicou em adicionar. Clice para adicionar ou deixe o campo vázio");
         }
+
 
         await api.post("/movie_notes", {
             title,

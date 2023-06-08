@@ -6,7 +6,7 @@ import avatarPlaceHolder from '../../assets/avatar_placeholder.svg'
 
 import { Input } from '../Input';
 
-export function Header() {
+export function Header({ ...props }) {
 
     const { signOut, user } = useAuth();
 
@@ -17,7 +17,7 @@ export function Header() {
             <Logo>
                 <h1>RocketMovies</h1>
             </Logo>
-            <Input type="text" placeholder="Pesquisar pelo titulo" />
+            <Input type="text" placeholder="Pesquisar pelo titulo" {...props}/>
             <Profile>
                 <div>
                     <strong>{user.name}</strong>
